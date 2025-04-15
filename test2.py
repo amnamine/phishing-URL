@@ -33,6 +33,9 @@ def extract_advanced_features(url):
         # Protocol feature
         features.append(1 if url.startswith('https') else 0)  # HTTPS present
         
+        # Add subdomain count feature
+        features.append(len(domain.split('.')) - 1)  # Number of subdomains
+        
     except:
         return np.zeros(10)
     
